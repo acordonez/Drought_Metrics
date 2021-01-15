@@ -178,7 +178,7 @@ def write_cmec_json(hu_name,out_path='.'):
                 'description': 'Mean standardized precipitation index calculated with 6 months accumulative precip'},
              'Metric A3': {
                 'long_name': 'Mean SPI36',
-                'description': 'Mean standardized precipitation index calculated with 66 months accumulative precip'},
+                'description': 'Mean standardized precipitation index calculated with 36 months accumulative precip'},
              'Metric B1': {
                 'long_name': 'Season Precip.',
                 'description': 'Seasonality of precipitation'},
@@ -273,9 +273,11 @@ def make_html(hu_name, out_path='.'):
     <br><a href="{m2d}">{m2d}</a>\
     <br><a href="{m4d}">{m4d}</a>\
     <br>\
-    <br><h2>Plots</h2>\
+    <h2>Plots</h2>\
+    <h2>Heatmap of metrics</h2>\
     <br><p><img src="{p3p}" alt="{p3alt}"></p>\
     <br>\
+    <h2>Mean Precipitation Taylor Diagram</h2>\
     <br><p><img src="{p4p}" alt="{p4alt}"></p>\
     <br><p>Note: Models do not appear on the Taylor Diagram if their statistics are outside the presented range.</p> \
     </body>\
@@ -285,7 +287,7 @@ def make_html(hu_name, out_path='.'):
     if Path(out_path + '/' + p2p).exists():
         html = html.replace(
         '<br><h2>Plots</h2>', 
-        '<br><h2>Plots</h2>'
+        '<br><h2>Plots</h2><h2>Principal Metrics</h2>'
         + f'    <br><p><img src="{p1p}" alt="{p1alt}"></p>    <br>'
         + f'    <br><p><img src="{p2p}" alt="{p2alt}"></p>    <br>')
 
