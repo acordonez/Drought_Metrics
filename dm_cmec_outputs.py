@@ -300,6 +300,7 @@ if __name__ == "__main__":
     test_path = os.getenv("CMEC_MODEL_DATA")
     obs_path = os.getenv("CMEC_OBS_DATA")
     out_path = os.getenv("CMEC_WK_DIR")
+    log_path = os.path.join(out_path,"drought_metrics_log.txt")
 
     # Get user settings
     user_settings_yaml = sys.argv[1]
