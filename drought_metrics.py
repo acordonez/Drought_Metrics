@@ -28,9 +28,9 @@ Parameters:
         Path to principal metrics file
 
 """
+import json
 import os
 import sys
-import yaml
 from evaluation import evaluation
 
 # Get CMEC environment variables
@@ -39,9 +39,9 @@ obs_path = os.getenv("CMEC_OBS_DATA")
 out_path = os.getenv("CMEC_WK_DIR")
 
 # Get user settings
-user_settings_yaml = sys.argv[1]
-with open(user_settings_yaml) as config_file:
-    user_settings = yaml.safe_load(config_file).get("Drought_Metrics")
+user_settings_json = sys.argv[1]
+with open(user_settings_json) as config_file:
+    user_settings = json.load(config_file).get("Drought_Metrics")
 # Get any environment variables
 for setting in user_settings:
     user_settings[setting] = os.path.expandvars(user_settings[setting])
